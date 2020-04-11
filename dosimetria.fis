@@ -1,0 +1,125 @@
+[System]
+Name='dosimetria'
+Type='mamdani'
+Version=2.0
+NumInputs=8
+NumOutputs=1
+NumRules=35
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='sum'
+DefuzzMethod='mom'
+
+[Input1]
+Name='CULPABILIDADE'
+Range=[0 10]
+NumMFs=5
+MF1='baixo-grau':'zmf',[0.269 2.19075144508671]
+MF2='médio-grau':'gaussmf',[0.91 4.738]
+MF3='alto-grau':'sigmf',[3.77140442384329 7.77]
+MF4='medio-baixo-grau':'gaussmf',[0.7538 2.499]
+MF5='médio-alto-grau':'gaussmf',[0.9043 6.42]
+
+[Input2]
+Name='ANTECEDENTES'
+Range=[0 10]
+NumMFs=3
+MF1='bons-antecedentes':'gaussmf',[2.02881189204926 0]
+MF2='maus-antecedentes':'gaussmf',[1.699 5]
+MF3='péssimos-antecedentes':'smf',[4.74 9.01178010471204]
+
+[Input3]
+Name='CONDUTA_SOCIAL'
+Range=[0 10]
+NumMFs=3
+MF1='boa-conduta':'pimf',[-4.32 -2.9 0.445086705202313 2.91]
+MF2='má-conduta':'gaussmf',[1.699 5]
+MF3='péssima-conduta':'sigmf',[2.698 7.418]
+
+[Input4]
+Name='PERSONALIDADE'
+Range=[-5 5]
+NumMFs=3
+MF1='pacato':'pimf',[-9.105 -5.897 -4.745 0.01]
+MF2='normal':'gaussmf',[1.7 0.02658]
+MF3='violento':'gbellmf',[2 2.5 5]
+
+[Input5]
+Name='MOTIVO'
+Range=[-5 5]
+NumMFs=3
+MF1='aceitável':'zmf',[-4.6 -1.4]
+MF2='justo':'gaussmf',[1.699 0]
+MF3='reprovável':'sigmf',[1.99015629256108 3]
+
+[Input6]
+Name='CONSEQUÊNCIAS'
+Range=[0 10]
+NumMFs=3
+MF1='leve':'zmf',[0.4 3.6]
+MF2='branda':'gaussmf',[1.699 5]
+MF3='grave':'smf',[5.6242774566474 9.6]
+
+[Input7]
+Name='COMPORTAMENTO-DA-VÍTIMA'
+Range=[0 10]
+NumMFs=3
+MF1='não-contribuiu':'zmf',[0.791907514450868 2.88]
+MF2='contribuiu-pouco':'gaussmf',[1.31571238426121 5]
+MF3='provocou':'smf',[6.08 9.13872832369942]
+
+[Input8]
+Name='CIRCUNSTÂNCIAS'
+Range=[0 10]
+NumMFs=3
+MF1='irrelevantes':'zmf',[0.306358381502891 1.49]
+MF2='frio':'gaussmf',[1.37462487907888 5]
+MF3='bárbaro':'smf',[5.99421965317919 8.79]
+
+[Output1]
+Name='PENA-BASE'
+Range=[6 20]
+NumMFs=5
+MF1='baixa':'trimf',[0.4 6 8.83333333333333]
+MF2='media-baixa':'trimf',[7 9 11.5]
+MF3='alta':'trimf',[15.9444444444444 20 25.6]
+MF4='media':'trimf',[10.0185185185185 13 16]
+MF5='media-alta':'trimf',[13 16 19]
+
+[Rules]
+1 0 0 0 0 0 0 0, 1 (0.5) : 2
+2 0 0 0 0 0 0 0, 4 (0.5) : 2
+3 0 0 0 0 0 0 0, 3 (0.5) : 2
+4 0 0 0 0 0 0 0, 2 (0.5) : 2
+5 0 0 0 0 0 0 0, 5 (0.5) : 2
+0 1 0 0 0 0 0 0, 1 (0.5) : 2
+0 2 0 0 0 0 0 0, 4 (0.5) : 2
+0 3 0 0 0 0 0 0, 3 (0.5) : 2
+0 0 1 0 0 0 0 0, 1 (0.5) : 2
+0 0 2 0 0 0 0 0, 5 (0.5) : 2
+0 0 3 0 0 0 0 0, 3 (0.5) : 2
+0 0 0 1 0 0 0 0, 1 (0.5) : 2
+0 0 0 2 0 0 0 0, 2 (0.5) : 2
+0 0 0 3 0 0 0 0, 3 (0.5) : 2
+0 0 0 0 1 0 0 0, 1 (0.5) : 2
+0 0 0 0 2 0 0 0, 4 (0.5) : 2
+0 0 0 0 3 0 0 0, 3 (0.5) : 2
+0 0 0 0 0 1 0 0, 1 (0.5) : 2
+0 0 0 0 0 2 0 0, 2 (0.5) : 2
+0 0 0 0 0 3 0 0, 3 (0.5) : 2
+0 0 0 0 0 0 1 0, 3 (0.5) : 2
+0 0 0 0 0 0 2 0, 4 (0.5) : 2
+0 0 0 0 0 0 3 0, 1 (0.5) : 2
+0 0 0 0 0 0 0 1, 1 (0.5) : 2
+0 0 0 0 0 0 0 2, 5 (0.5) : 2
+0 0 0 0 0 0 0 3, 3 (0.5) : 2
+0 3 3 3 0 0 0 0, 3 (0.8) : 1
+0 0 0 0 3 3 1 3, 3 (0.8) : 1
+1 1 1 1 0 0 0 1, 1 (0.8) : 1
+0 1 1 1 0 0 0 1, 1 (0.8) : 1
+0 1 1 2 1 0 3 1, 1 (0.8) : 1
+3 3 3 3 0 0 0 0, 5 (0.8) : 1
+3 3 3 3 3 3 1 3, 3 (1) : 1
+2 2 2 2 2 2 2 2, 5 (1) : 1
+1 1 1 1 1 1 3 1, 1 (1) : 1

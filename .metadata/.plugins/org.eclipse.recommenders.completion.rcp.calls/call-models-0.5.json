@@ -1,0 +1,12 @@
+{
+  "D:\\UnP\\Sistemas de Informação\\Inteligência Artificial\\Codigos\\Perceptron\\src": {
+    "location": "D:\\UnP\\Sistemas de Informação\\Inteligência Artificial\\Codigos\\Perceptron\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\UnP\\Sistemas de Informação\\Inteligência Artificial\\Codigos\\Perceptron\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  }
+}

@@ -1,0 +1,36 @@
+[System]
+Name='tank'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Erro'
+Range=[0 100]
+NumMFs=4
+MF1='Zero':'trimf',[-3 0 0]
+MF2='P':'trimf',[11.1 28.1746031746032 60.2]
+MF3='PMG':'trimf',[69.9269841269841 98.8269841269841 109.920634920635]
+MF4='PG':'trimf',[50.1322751322751 62.3 79.2]
+
+[Output1]
+Name='Valvula'
+Range=[0 100]
+NumMFs=4
+MF1='0':'trimf',[-39.7354497354497 0.264550264550266 0.396550264550266]
+MF2='75':'trimf',[49.9 65.5 75]
+MF3='100':'trimf',[75.5291005291005 100 140]
+MF4='50':'trimf',[23.7 37.4 50.1322751322751]
+
+[Rules]
+1, 1 (1) : 1
+2, 4 (1) : 1
+4, 2 (1) : 1
+3, 3 (1) : 1

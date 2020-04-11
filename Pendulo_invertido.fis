@@ -1,0 +1,49 @@
+[System]
+Name='Pendulo_invertido'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Posição'
+Range=[-0.8 0.8]
+NumMFs=3
+MF1='Negativa':'trimf',[-1.38 -0.741 -0.0190476190476192]
+MF2='Zero':'trimf',[-0.218034391534392 -0.0126243915343917 0.235165608465608]
+MF3='Positiva':'trimf',[0.01473 0.8169 1.456]
+
+[Input2]
+Name='Velocidade'
+Range=[-2 2]
+NumMFs=3
+MF1='Negativo':'trimf',[-3.6 -2 -0.0688]
+MF2='Zero':'trimf',[-0.682539682539683 0.0106 0.661]
+MF3='Positivo':'trimf',[-0.0264550264550267 2 3.6]
+
+[Output1]
+Name='Motor'
+Range=[-20 20]
+NumMFs=5
+MF1='MuitoNeg':'trimf',[-30 -20 -10]
+MF2='PoucoNeg':'trimf',[-13.5 -7.67195767195767 -1.75]
+MF3='Zero':'trimf',[-3.76 0 3.54497354497354]
+MF4='PoucoPos':'trimf',[1.85 6.71957671957671 12.6]
+MF5='MuitoPos':'trimf',[10 20 30]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 2, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+3 1, 4 (1) : 1
+3 2, 5 (1) : 1
+3 3, 5 (1) : 1

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1424351990 source:d:\unp\disciplinas\inteligência computacional\codigos\busca em largura\grafos_bfs.cpp
+	<iostream>
+	<list>
+	<queue>
+
